@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import {CiLocationOn} from "react-icons/ci"
 import { useGetAllHotDilsApiQuery } from '../../Redux/Reducers/ProductReducer'
+import Card from '../ProductCard/Card'
 
 const Search = () => {
   const [item,setImte] = useState()
@@ -8,12 +9,12 @@ const Search = () => {
   const [inputBox,setInputBox] = useState("")
   const [hotDeal,setHotDeal] = useState([])
   useEffect(()=>{
-    let hotDeal =  data?.products[0]?.productData?.filter(product => product?.product_name.includes(item));
+    let hotDeal =  data?.products[0]?.productData?.filter(product => product?.product_name.includes(inputBox));
 
    
      setHotDeal(hotDeal)
    
-   },[data,item])
+   },[data,inputBox])
   
 
 
@@ -29,10 +30,18 @@ const Search = () => {
      <input className='w-[300px] rounded-lg px-4 ring-1 ring-black/25 text-lg ' placeholder='search' onChange={(e)=> setInputBox(e.target.value)}></input>
     </div>
 
-
-    <div>
-     
+  {
+    inputBox?.length && (
+      <div className='mx-[100px] grid grid-cols-5'>
+        {
+          hotDeal?.map((item,ind)=>{
+            return <Card item={item} key={ind}></Card>
+          })
+        }
     </div>
+    )
+  }
+    
    </div>
   )
 }
