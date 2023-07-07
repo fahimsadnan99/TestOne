@@ -31,15 +31,15 @@ const Search = () => {
     </div>
 
   {
-    inputBox?.length && (
-      <div className='mx-[100px] grid grid-cols-5'>
+    inputBox?.length ? (
+      <div className='mx-[100px]'>
         {
           hotDeal?.map((item,ind)=>{
             return <Card item={item} key={ind}></Card>
           })
         }
     </div>
-    )
+    ) : ""
   }
     
    </div>
