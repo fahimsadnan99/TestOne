@@ -1,0 +1,7 @@
+.heroRightWrapper .textHotDeal  {
+  color: black !important;
+  border-color: #FFAE5D !important;
+  border-bottom:  2px dashed;
+   display: block;
+  @apply mt-16 text-lg font-bold w-full
+}

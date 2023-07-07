@@ -1,0 +1,8 @@
+
+    .header {
+      @apply grid grid-cols-2 mx-[100px] py-5
+    }
+
+    .btnHeder {
+      @apply flex text-lg font-semibold ml-auto
+    }
